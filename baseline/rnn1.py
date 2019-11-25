@@ -252,22 +252,6 @@ def Linear(in_features, out_features, bias=True):
         m.bias.data.uniform_(-0.1, 0.1)
     return m
 
-def LSTMCell(input_size, hidden_size, **kwargs):
-    """LSTMCell"""
-    m = nn.LSTMCell(input_size, hidden_size, **kwargs)
-    for name, param in m.named_parameters():
-        if 'weight' in name or 'bias' in name:
-            param.data.uniform_(-0.1, 0.1)
-    return m
-
-def LSTM(input_size, hidden_size, **kwargs):
-    """LSTM layer"""
-    m = nn.LSTM(input_size, hidden_size, **kwargs)
-    for name, param in m.named_parameters():
-        if 'weight' in name or 'bias' in name:
-            param.data.uniform_(-0.1, 0.1)
-    return m
-
 def GRU(input_size, hidden_size, **kwargs):
     """GRU layer"""
     m = nn.GRU(input_size, hidden_size, **kwargs)

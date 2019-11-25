@@ -20,7 +20,7 @@ class EncoderConv(nn.Module):
         self.device = device
 
         self.embed_tokens = Embedding(input_dim, embed_dim, self.padding_idx)
-        self.embed_positions = PositionalEmbedding(max_positions, embed_dim, self.padding_idx) # Embedding(max_positions, embed_dim, self.padding_idx)
+        self.embed_positions = PositionalEmbedding(max_positions, embed_dim, self.padding_idx)
 
         convolutions = extend_conv_spec(convolutions)
         in_channels = convolutions[0][0]
@@ -64,8 +64,6 @@ class EncoderConv(nn.Module):
             conved (LongTensor): (batch, src_len, embed_dim)
             combined (LongTensor): (batch, src_len, embed_dim)
         """
-        # pos_tokens = torch.arange(0, src_tokens.shape[1]).unsqueeze(0).repeat(src_tokens.shape[0], 1).to(self.device) # (batch, src_len)
-
         # embed tokens and positions
         embedded = self.embed_tokens(src_tokens) + self.embed_positions(src_tokens)
         embedded = F.dropout(embedded, p=self.dropout, training=self.training)
@@ -175,7 +173,7 @@ class DecoderConv(nn.Module):
         self.padding_idx = vocabulary.stoi[PAD_TOKEN]
 
         self.embed_tokens = Embedding(output_dim, embed_dim, self.padding_idx)
-        self.embed_positions = PositionalEmbedding(max_positions, embed_dim, self.padding_idx) # Embedding(output_dim, embed_dim, self.padding_idx)
+        self.embed_positions = PositionalEmbedding(max_positions, embed_dim, self.padding_idx)
 
         self.embed2inchannels = Linear(embed_dim, in_channels)
         self.projections = nn.ModuleList()
@@ -219,8 +217,6 @@ class DecoderConv(nn.Module):
         """
         src_tokens = kwargs.get('src_tokens', '')
         encoder_padding_mask = src_tokens.eq(self.padding_idx)
-
-        # pos_tokens = torch.arange(0, trg_tokens.shape[1]).unsqueeze(0).repeat(trg_tokens.shape[0], 1).to(self.device) # (batch, trg_len)
 
         # embed tokens and positions
         embedded = self.embed_tokens(trg_tokens) + self.embed_positions(trg_tokens)
@@ -274,9 +270,7 @@ class DecoderConv(nn.Module):
 
 def extend_conv_spec(convolutions):
     """
-    Extends convolutional spec that is a list of tuples of 2 or 3 parameters
-    (kernel size, dim size and optionally how many layers behind to look for residual)
-    to default the residual propagation param if it is not specified
+    Extends convolutional spec with default residual if it is not specified
     """
     extended = []
     for spec in convolutions:
@@ -318,23 +312,12 @@ def PositionalEmbedding(num_embeddings, embedding_dim, padding_idx):
     return m
 
 class LearnedPositionalEmbedding(nn.Embedding):
-    """
-    This module learns positional embeddings up to a fixed maximum size.
-    Padding ids are ignored by either offsetting based on padding_idx
-    or by setting padding_idx to None and ensuring that the appropriate
-    position ids are passed to the forward function.
-    """
-    def __init__(
-            self,
-            num_embeddings: int,
-            embedding_dim: int,
-            padding_idx: int,
-    ):
+    """LearnedPositionalEmbedding"""
+    def __init__(self, num_embeddings, embedding_dim, padding_idx):
         super().__init__(num_embeddings, embedding_dim, padding_idx)
 
     def forward(self, input):
-        """Input is expected to be of size [bsz x seqlen]."""
-        # make positions
+        """Input size [bsz x seqlen]"""
         # Replace non-padding symbols with their position numbers.
         # Position numbers begin at padding_idx+1. Padding symbols are ignored.
         mask = input.ne(self.padding_idx).int()

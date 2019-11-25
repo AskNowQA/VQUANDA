@@ -1,4 +1,4 @@
-"""Run the baseline models"""
+"""Run baseline model"""
 import os
 import math
 import random
@@ -123,10 +123,6 @@ if __name__ == "__main__":
     torch.manual_seed(SEED)
     torch.cuda.manual_seed(SEED)
     torch.cuda.manual_seed_all(SEED)
-    # cudnn this raises accuracy but drops performance???
-    # weight normalization combined with cudnn gives bad
-    # results
-    # also sometimes results are not constant with cudnn??
     torch.backends.cudnn.enabled = False
     torch.backends.cudnn.deterministic = True
     main()
