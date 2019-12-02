@@ -18830,7 +18830,7 @@
     {
         "uid": "4737",
         "question": "What is the country with native language as Languages of Ethiopia?",
-        "verbalized_answer": "[Ethiopia]is the country who has the native langues of Ethiopia.",
+        "verbalized_answer": "[Ethiopia] is the country who has the native langues of Ethiopia.",
         "query": "SELECT DISTINCT ?uri WHERE {?uri <http://dbpedia.org/ontology/language> <http://dbpedia.org/resource/Languages_of_Ethiopia>  . ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Country>}"
     },
     {
@@ -20102,7 +20102,7 @@
     {
         "uid": "4577",
         "question": "What is the province of Egypt Nanotechnology Center ?",
-        "verbalized_answer": "[Giza]is the province of Egypt Nanotechnology Center.",
+        "verbalized_answer": "[Giza] is the province of Egypt Nanotechnology Center.",
         "query": "SELECT DISTINCT ?uri WHERE { <http://dbpedia.org/resource/Egypt_Nanotechnology_Center> <http://dbpedia.org/property/province> ?uri }"
     },
     {

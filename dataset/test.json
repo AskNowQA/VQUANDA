@@ -5114,7 +5114,7 @@
     {
         "uid": "502",
         "question": "Where is the king buried whose predecessor was Iyasu II?",
-        "verbalized_answer": "The place of burial of the monarch whose predecessor is Iyasu II are [Ethiopia, Gondar].",
+        "verbalized_answer": "The place of burial of the monarch whose predecessor is Iyasu II is [Ethiopia, Gondar].",
         "query": "SELECT DISTINCT ?uri WHERE { ?x <http://dbpedia.org/property/predecessor> <http://dbpedia.org/resource/Iyasu_II> . ?x <http://dbpedia.org/property/placeOfBurial> ?uri  . ?x <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Monarch>}"
     },
     {
