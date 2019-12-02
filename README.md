@@ -1,4 +1,4 @@
-# VQuAnDa - Verbalization QUestion ANswering DAtaset
+# VQuAnDa - Verbalization Question Answering Dataset
 
 ## Introduction
 We introduce a KBQA dataset containing verbalizations of answers. The dataset is based on [LC-QuAD](https://github.com/AskNowQA/LC-QuAD) which uses [DBpedia v04.16](https://wiki.dbpedia.org/dbpedia-version-2016-04) as the target KB.
