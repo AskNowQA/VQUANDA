@@ -22,6 +22,6 @@ The dataset is stored in JSON dumps and each instance contains 4 key-value pairs
 Alongside the dataset, we provide some baseline models. [Here](https://github.com/endrikacupaj/VQUANDA-Baseline-Models) you can find the baseline implementations and instructions for how to run them.
 
 ## License
-The dataset is under [GPL-3.0 License](LICENSE)
+The dataset is under [Attribution 4.0 International (CC BY 4.0)](LICENSE)
 
 ## Cite
