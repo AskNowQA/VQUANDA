@@ -493,7 +493,7 @@
     },
     {
         "uid": "1225",
-        "question": "The software with Mac OS as operating system and C++ as programming language are [answer].",
+        "question": "What softwares were created by Apple Productivity Experience Group ?",
         "verbalized_answer": "The products of Apple Productivity Experience Group are [Microsoft Office, Remote Desktop Protocol, Windows Live Messenger].",
         "query": "SELECT DISTINCT ?uri WHERE { <http://dbpedia.org/resource/Apple_Productivity_Experience_Group> <http://dbpedia.org/ontology/product> ?uri }"
     },
