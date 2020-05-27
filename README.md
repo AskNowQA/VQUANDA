@@ -25,3 +25,13 @@ Alongside the dataset, we provide some baseline models. [Here](https://github.co
 The dataset is under [Attribution 4.0 International (CC BY 4.0)](LICENSE)
 
 ## Cite
+```bash
+@InProceedings{kacupaj2020vquanda,
+    title={VQuAnDa: Verbalization QUestion ANswering DAtaset},
+    author={Kacupaj, Endri and Zafar, Hamid and Lehmann, Jens and Maleshkova, Maria},
+    booktitle={The Semantic Web},
+    pages={531--547},
+    year={2020},
+    publisher={Springer International Publishing},
+}
+```
